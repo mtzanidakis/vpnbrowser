@@ -10,13 +10,14 @@ services:
     cap_add:
       - net_admin
     dns:
-      - 8.8.8.8
-      - 8.8.4.4
-    security_opt:
-      - label:disable
+      - 9.9.9.9
+      - 149.112.112.112
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
     restart: unless-stopped
     volumes:
-      - /dev/net:/dev/net:z
       - ./vpn:/vpn
 
   browser:
