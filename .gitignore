@@ -1,3 +1,4 @@
 shared/*
 !shared/.gitkeep
 vpn/vpn.auth
+vpn/vpn.conf

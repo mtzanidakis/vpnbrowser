@@ -1,7 +1,7 @@
 client
 dev tun
 proto udp
-remote gre.torguard.com 1912
+remote ${COUNTRY}.torguard.com 1912
 auth-user-pass /vpn/vpn.auth
 auth-nocache
 verb 1
