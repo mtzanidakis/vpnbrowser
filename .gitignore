@@ -1,2 +1,3 @@
-shared
+shared/*
+!shared/.gitkeep
 vpn/vpn.auth
