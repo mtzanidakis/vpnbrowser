@@ -1,0 +1,36 @@
+version: "3"
+services:
+
+  vpn:
+    image: dperson/openvpn-client
+    container_name: vpn
+    environment:
+      - TZ=Europe/Athens
+      - FIREWALL=
+    cap_add:
+      - net_admin
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    security_opt:
+      - label:disable
+    restart: unless-stopped
+    volumes:
+      - /dev/net:/dev/net:z
+      - ./vpn:/vpn
+
+  browser:
+    container_name: browser
+    image: vpnbrowser
+    build: ./browser
+    network_mode: service:vpn
+    environment:
+      - DISPLAY=${DISPLAY}
+      - PULSE_SERVER=unix:/tmp/pulseaudio.socket
+      - PULSE_COOKIE=/tmp/pulseaudio.cookie
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /tmp/pulseaudio.socket:/tmp/pulseaudio.socket
+      - ./shared:/shared
