@@ -13,7 +13,7 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
     volumes:
-      - ./vpn:/config
+      - ./vpn/wg0.conf:/config/wg0.conf
 
   browser:
     container_name: browser
