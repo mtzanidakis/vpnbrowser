@@ -1,5 +1,6 @@
 FROM archlinux
-RUN pacman -Sy --noconfirm \
+COPY ./pacman-mirrorlist /etc/pacman.d
+RUN pacman -Syu --noconfirm && pacman -S --noconfirm \
 	ttf-liberation \
 	firefox \
 	firefox-ublock-origin \
