@@ -4,7 +4,8 @@ RUN pacman -Syu --noconfirm && pacman -S --noconfirm \
 	ttf-liberation \
 	firefox \
 	firefox-ublock-origin \
-	firefox-extension-privacybadger && \
+	firefox-extension-privacybadger \
+	youtube-dl && \
 	rm -rf -- /var/cache/pacman/pkg/* && \
 	useradd -s /bin/bash -d /home/user -m -G audio,video user
 COPY ./pulse-client.conf /etc/pulse
