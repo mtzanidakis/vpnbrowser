@@ -12,4 +12,4 @@ COPY ./pulse-client.conf /etc/pulse
 COPY ./mozilla.cfg /usr/lib/firefox
 COPY ./local-settings.js /usr/lib/firefox/defaults/pref
 USER user
-CMD ["firefox", "--private-window", "about:blank"]
+CMD ["firefox", "about:blank"]
