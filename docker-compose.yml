@@ -17,8 +17,7 @@ services:
 
   browser:
     container_name: browser
-    image: vpnbrowser
-    build: ./browser
+    image: hub.mtzanidakis.com/vpnbrowser
     network_mode: service:vpn
     environment:
       - DISPLAY=${DISPLAY}
