@@ -2,7 +2,10 @@
 
 set -e
 
-_dc="docker compose --project-directory $(pwd)"
+_pwd=$(dirname $0)
+[[ -h $0 ]] && _pwd=$(dirname $(readlink $0))
+
+_dc="docker compose --project-directory ${_pwd}"
 
 function start() {
 	xhost +local:
