@@ -2,7 +2,7 @@
 
 set -e
 
-_dc="docker compose --project-directory $HOME/.local/vpnbrowser"
+_dc="docker compose --project-directory $(pwd)"
 
 function start() {
 	xhost +local:
