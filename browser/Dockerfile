@@ -1,13 +1,16 @@
 FROM archlinux
 COPY ./pacman-mirrorlist /etc/pacman.d
-RUN pacman -Syu --noconfirm && pacman -S --noconfirm \
-	ttf-liberation \
-	firefox \
-	firefox-ublock-origin \
-	firefox-extension-privacybadger \
-	youtube-dl && \
-	rm -rf -- /var/cache/pacman/pkg/* && \
-	useradd -s /bin/bash -d /home/user -m -G audio,video user
+RUN pacman -Syu --noconfirm && \
+	pacman -S --noconfirm \
+		ttf-liberation \
+		noto-fonts-cjk \
+		noto-fonts-emoji \
+		firefox \
+		firefox-ublock-origin \
+		firefox-extension-privacybadger \
+		youtube-dl && \
+	rm -rf -- /var/cache/pacman/pkg/*
+RUN useradd -s /bin/bash -d /home/user -m -G audio,video user
 COPY ./pulse-client.conf /etc/pulse
 COPY ./mozilla.cfg /usr/lib/firefox
 COPY ./local-settings.js /usr/lib/firefox/defaults/pref
