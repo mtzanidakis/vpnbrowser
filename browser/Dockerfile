@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 	font-noto-cjk \
 	font-noto-emoji \
 	pulseaudio \
-	ttf-liberation
+	ttf-dejavu
 RUN adduser -s /bin/bash -h /home/user -D user && \
 	addgroup user audio && \
 	addgroup user video
