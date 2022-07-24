@@ -3,7 +3,7 @@ COPY firefox-profile.tgz /tmp
 WORKDIR /tmp
 RUN tar zxpf firefox-profile.tgz
 
-FROM alpine:3.16
+FROM alpine:3.16.1
 RUN apk add --no-cache \
 	bash \
 	firefox \
