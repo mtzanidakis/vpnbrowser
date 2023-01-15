@@ -3,8 +3,8 @@ COPY firefox-profile.tgz /tmp
 WORKDIR /tmp
 RUN tar zxpf firefox-profile.tgz
 
-FROM alpine:3.17.0
-RUN apk add --no-cache \
+FROM alpine:3.17.1
+RUN apk -U upgrade --no-cache && apk add --no-cache \
 	bash \
 	firefox \
 	ffmpeg \
