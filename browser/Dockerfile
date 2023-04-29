@@ -6,6 +6,7 @@ RUN tar zxpf firefox-profile.tgz
 FROM alpine:3.17.3
 RUN apk -U upgrade --no-cache && apk add --no-cache \
 	bash \
+	curl \
 	firefox \
 	ffmpeg \
 	font-noto-cjk \
