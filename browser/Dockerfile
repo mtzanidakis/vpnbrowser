@@ -18,7 +18,8 @@ RUN apk -U upgrade --no-cache && apk add --no-cache \
 	ttf-dejavu
 RUN adduser -s /bin/bash -h /home/user -D user && \
 	addgroup user audio && \
-	addgroup user video
+	addgroup user video && \
+	addgroup user tape
 COPY ./pulse-client.conf /etc/pulse
 COPY ./mozilla.cfg /usr/lib/firefox
 COPY ./local-settings.js /usr/lib/firefox/defaults/pref
