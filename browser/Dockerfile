@@ -11,6 +11,9 @@ RUN apk -U upgrade --no-cache && apk add --no-cache \
 	ffmpeg \
 	font-noto-cjk \
 	font-noto-emoji \
+	intel-media-driver \
+	mesa-dri-gallium \
+	mesa-va-gallium \
 	pulseaudio \
 	ttf-dejavu
 RUN adduser -s /bin/bash -h /home/user -D user && \
