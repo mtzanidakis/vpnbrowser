@@ -1,6 +1,6 @@
 # Containerized Firefox with WireGuard VPN
 
-Run a privacy-focused Firefox in a container with WireGuard VPN support.
+Run a privacy-focused Firefox browser in a container with WireGuard VPN support.
 
 ## VPN Configuration
 
