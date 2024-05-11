@@ -1,8 +1,3 @@
-FROM busybox as temp
-COPY firefox-profile.tgz /tmp
-WORKDIR /tmp
-RUN tar zxpf firefox-profile.tgz
-
 FROM alpine:3.19
 RUN apk -U upgrade --no-cache && apk add --no-cache \
 	bash \
@@ -23,7 +18,8 @@ RUN adduser -s /bin/bash -h /home/user -D user && \
 COPY ./pulse-client.conf /etc/pulse
 COPY ./mozilla.cfg /usr/lib/firefox
 COPY ./local-settings.js /usr/lib/firefox/defaults/pref
+COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
+RUN chmod +x /bin/docker-entrypoint.sh
 WORKDIR /home/user
-COPY --from=temp --chown=user:user /tmp/.mozilla .mozilla
 USER user
-CMD ["firefox", "--private-window", "about:blank"]
+ENTRYPOINT ["/bin/docker-entrypoint.sh"]
