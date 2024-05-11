@@ -1,3 +1,5 @@
+docker-compose.override.yml
+firefox-profile
 shared/*
 !shared/.gitkeep
 vpn/*

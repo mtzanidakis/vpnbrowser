@@ -1,0 +1,4 @@
+services:
+  browser:
+    volumes:
+      - ./firefox-profile:/home/user/.mozilla
