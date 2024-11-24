@@ -1,4 +1,4 @@
-FROM alpine:3.20.3
+FROM alpine:3.20
 RUN apk -U upgrade --no-cache && apk add --no-cache \
 	bash \
 	curl \
