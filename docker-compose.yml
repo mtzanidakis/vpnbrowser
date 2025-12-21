@@ -17,12 +17,13 @@ services:
     image: ghcr.io/mtzanidakis/vpnbrowser
     network_mode: service:vpn
     environment:
-      - DISPLAY=${DISPLAY}
+      - XDG_RUNTIME_DIR=/tmp
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
       - PULSE_SERVER=unix:/tmp/pulseaudio.socket
       - PULSE_COOKIE=/tmp/pulseaudio.cookie
     devices:
       - /dev/dri:/dev/dri
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/tmp/$WAYLAND_DISPLAY
       - /tmp/pulseaudio.socket:/tmp/pulseaudio.socket
       - ./shared:/shared
