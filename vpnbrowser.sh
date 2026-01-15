@@ -8,13 +8,11 @@ _pwd=$(dirname $0)
 _dc="docker compose --project-directory ${_pwd}"
 
 function start() {
-	xhost +local:
 	${_dc} up -d
 }
 
 function stop() {
 	${_dc} down
-	xhost -
 	exit 0
 }
 
